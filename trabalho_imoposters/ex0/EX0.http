@@ -12,10 +12,11 @@ POST http://localhost:2525/imposters
         {
           "equals": {
             "path": "/ex0",
-            "method": "GET"
+            "method": "POST "
           }
         }
       ]
     }]
   }]
 }
+

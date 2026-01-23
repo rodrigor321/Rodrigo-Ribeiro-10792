@@ -1,0 +1,2 @@
+GET http://localhost:4546/api/cars
+Accept: application/json

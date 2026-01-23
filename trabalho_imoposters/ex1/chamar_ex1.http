@@ -1,0 +1,2 @@
+GET http://localhost:4549/api/marcas
+Accept: application/json

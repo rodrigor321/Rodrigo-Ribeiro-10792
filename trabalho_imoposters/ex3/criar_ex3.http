@@ -1,0 +1,31 @@
+POST http://localhost:2525/imposters
+
+{
+  "port": 4546,
+  "protocol": "http",
+  "stubs": [
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "GET",
+            "path": "/api/cars"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "results": []
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
