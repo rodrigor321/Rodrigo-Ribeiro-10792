@@ -8,9 +8,27 @@ POST http://localhost:2525/imposters
       "predicates": [
         {
           "and": [
-            { "equals": { "method": "POST", "path": "/api/login" } },
-            { "equals": { "headers": { "Content-Type": "application/json" } } },
-            { "deepEquals": { "body": { "username": "admin", "password": "secret" } } }
+            {
+              "equals": {
+                "method": "POST",
+                "path": "/api/login"
+              }
+            },
+            {
+              "equals": {
+                "headers": {
+                  "Content-Type": "application/json"
+                }
+              }
+            },
+            {
+              "deepEquals": {
+                "body": {
+                  "username": "admin",
+                  "password": "secret"
+                }
+              }
+            }
           ]
         }
       ],
@@ -18,8 +36,13 @@ POST http://localhost:2525/imposters
         {
           "is": {
             "statusCode": 200,
-            "headers": { "Content-Type": "application/json" },
-            "body": { "status": "ok", "token": "validtoken" }
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "status": "ok",
+              "token": "validtoken"
+            }
           }
         }
       ]
@@ -28,8 +51,19 @@ POST http://localhost:2525/imposters
       "predicates": [
         {
           "and": [
-            { "equals": { "method": "POST", "path": "/api/login" } },
-            { "equals": { "headers": { "Content-Type": "application/json" } } }
+            {
+              "equals": {
+                "method": "POST",
+                "path": "/api/login"
+              }
+            },
+            {
+              "equals": {
+                "headers": {
+                  "Content-Type": "application/json"
+                }
+              }
+            }
           ]
         }
       ],
@@ -37,8 +71,12 @@ POST http://localhost:2525/imposters
         {
           "is": {
             "statusCode": 401,
-            "headers": { "Content-Type": "application/json" },
-            "body": { "error": "invalid_credentials" }
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "error": "invalid_credentials"
+            }
           }
         }
       ]
