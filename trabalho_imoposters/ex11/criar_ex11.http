@@ -1,0 +1,37 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4557,
+  "protocol": "http",
+  "stubs": [
+    {
+      "predicates": [
+        {
+          "and": [
+            { "equals": { "method": "POST", "path": "/api/tasks" } },
+            { "equals": { "headers": { "Content-Type": "application/json" } } }
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 201,
+            "headers": {
+              "Content-Type": "application/json",
+              "Location": "/api/tasks/task-001"
+            },
+            "body": {
+              "id": "task-001",
+              "status": "created",
+              "message": "Tarefa criada com sucesso."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+

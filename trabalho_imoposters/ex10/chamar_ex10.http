@@ -1,0 +1,7 @@
+POST http://localhost:4556/api/tasks
+Content-Type: application/json
+
+{
+  "title": "duplicate",
+  "description": "Tarefa duplicada"
+}

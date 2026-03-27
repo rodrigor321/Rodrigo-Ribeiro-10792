@@ -1,0 +1,36 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4552,
+  "protocol": "http",
+  "stubs": [
+    {
+      "predicates": [
+        {
+          "and": [
+            { "equals": { "method": "POST", "path": "/api/users" } },
+            { "equals": { "headers": { "Content-Type": "application/json" } } },
+            { "contains": { "body": {"email": "rodri@gmail.com" }} }
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 409,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "error": "email_exists",
+              "message": "O email 'rodri@gmail.com ' já se encontra registado."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+
+

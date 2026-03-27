@@ -1,0 +1,34 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4556,
+  "protocol": "http",
+  "stubs": [
+    {
+      "predicates": [
+        {
+          "and": [
+            { "equals": { "method": "POST", "path": "/api/tasks" } },
+            { "equals": { "headers": { "Content-Type": "application/json" } } },
+            { "contains": { "body": "\"title\":\"duplicate\"" } }
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 409,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "error": "duplicate_task",
+              "message": "Já existe uma tarefa com o título 'duplicate'."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
