@@ -1,0 +1,2 @@
+GET http://localhost:4558/api/profile
+Authorization: Bearer validtoken
